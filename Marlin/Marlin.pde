@@ -1385,6 +1385,9 @@ void prepare_move() {
 			    sq(difference[Y_AXIS]) +
 			    sq(difference[Z_AXIS]));
   if ( cartesian_mm < 0.000001 ) {
+    cartesian_mm = abs(difference[E_AXIS]);
+  }
+  if ( cartesian_mm < 0.000001 ) {
     return;
   }
   float seconds = 6000 * cartesian_mm / feedrate / feedmultiply;
